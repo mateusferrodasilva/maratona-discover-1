@@ -1,5 +1,6 @@
 /* ============== Global ============== */
-/* variáveis (um atalho)  root referencia a primeira tag html*/
+/* variáveis (um atalho)  root referencia a primeira tag html porém com maior especificidade
+usada para guardar variáveis css global */
 :root {
     --dark-blue: color: #363f5f;
 
@@ -92,6 +93,7 @@ header h1#logo {
 #data-table{
     width: 100%;
     color: #969cb3;
+    /* table borders */
     border-spacing: 0 0.5rem;
 }
 
