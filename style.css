@@ -97,6 +97,7 @@ button:hover {
 .button.new {
     /* funcionará como block, porém a largura será do elemento, caso fosse apenas inline não pegaria a margin-bottom, pois inline só pega margin left-right */
     display: inline-block;
+    margin-top: .8rem;
     margin-bottom: .8rem;
 }
 
@@ -122,7 +123,7 @@ button:hover {
 header {
     background: #2d4a22;
     /* works as a clock: top - right - bottom - left */
-    padding: 2rem 0 10rem;
+    padding: 2rem 0 8rem;
     text-align: center;
 }
 
@@ -134,7 +135,7 @@ header h1#logo {
 
 /* ============== Balance ============== */
 #balance {
-    margin-top: -8rem;
+    margin-top: -4.625rem;
 }
 
 #balance h2 {
@@ -254,6 +255,8 @@ td.expense{
 
     opacity:0;
     visibility:hidden;
+
+    z-index: 999;
 }
 
 .modal-overlay.active {
@@ -266,6 +269,9 @@ td.expense{
     padding: 2.4rem;
     width: 90%;
     max-width: 500px;
+
+    position: relative;
+    z-index: 1;
 }
 
 /* ============== Form ============== */
