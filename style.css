@@ -16,6 +16,10 @@ usada para guardar variáveis css global */
     box-sizing: border-box; 
 }
 
+html {
+    font-size: 93.75%; /* 15px -> 100% = 16px */
+}
+
 body {
     background: #f0f2f5;
     /* Serif fonts have details in it's limits, sans-serif does not. */
@@ -60,6 +64,10 @@ a {
 
 a:hover {
     color: #3dd705;
+}
+
+img[title="Remove transaction"]:hover {
+    cursor: pointer;
 }
 
 .button.new {
@@ -127,6 +135,13 @@ header h1#logo {
 
 /* ============== Table ============== */
 /* ordem: pai agrupamentos elementos da árvore */
+#transaction {
+    display:block;
+    width: 100%;
+    overflow-x: scroll;
+
+}
+
 #data-table{
     width: 100%;
     color: #969cb3;
@@ -179,10 +194,56 @@ td.expense{
     color: #e92929;
 }
 
+/* ============== Modal ============== */
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+
+    /* Função que adiciona opacidade */
+    background-color: rgba(0, 0, 0, 0.7);
+
+    /* esta propriedade libera a propriedade top */
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity:0;
+    visibility:hidden;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: #f0f2f5;
+    padding: 2.4rem;
+}
+
 /* ============== Footer ============== */
 footer {
     text-align: center;
     padding: 4rem 0 2rem;
     color: var(--dark-blue);
     opacity: .6;
+}
+
+/* ============ Responsive ============ */
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%; /* 14px */
+    }
+
+    #balance {
+        /* transforma em colunas */
+        display:grid;
+        /* fr divide a tela automaticamente */
+        grid-template-columns: repeat(3, 1fr);
+        /* Espaço entre as frações */
+        gap: 2rem;
+    }
 }
