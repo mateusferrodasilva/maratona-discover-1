@@ -98,7 +98,32 @@
     <!-- Criação do MODAL -->
     <div class="modal-overlay active">
         <div class="modal">
-            oi
+            <div id="form">
+                <h2>Nova Transação</h2>
+
+                <!-- O formulário reconhece como submit o primeiro botão que encontrar no form -->
+                <form action="#" method="post">
+                    <fieldset class="input-group">
+                        <label class="sr-only" for="description">Descrição
+                        </label>
+                        <input type="text" name="description" id="description" placeholder="Descrição">
+
+                        <label class="sr-only" for="amount">Valor</label>
+                        <input type="number" name="amount" id="amount" placeholder="0,00" step="0.01">
+                        
+                        <small class="help">Use o sinal - (negativo) para despesas e , (vírgula) para casas
+                            decimais</small>
+
+                        <label class="sr-only" for="date">Data</label>
+                        <input type="date" name="date" id="date">
+                    </fieldset>
+
+                    <fieldset class="input-group-actions">
+                        <a href="#" class="button-cancel">Cancelar</a>
+                        <button>Salvar</button>
+                    </fieldset>
+                </form>
+            </div>
         </div>
     </div>
 
