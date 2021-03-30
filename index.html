@@ -34,7 +34,7 @@
                     <span>Entradas</span>
                     <img src="./assets/income.svg" alt="Income image">
                 </h3>
-                <p>R$ 5.000,00</p>
+                <p id="income-display"></p>
             </div>
 
             <div class="card">
@@ -42,14 +42,14 @@
                     <span>Saídas</span>
                     <img src="./assets/expense.svg" alt="Expense image">
                 </h3>
-                <p>R$ 2.000,00</p>
+                <p id="expense-display"></p>
             </div>
 
             <div class="card total">
                 <h3><span>Entradas</span>
                     <img src="./assets/total.svg" alt="Total image">
                 </h3>
-                <p>R$ 3.000,00</p>
+                <p id="total-display"></p>
             </div>
         </section>
 
@@ -57,7 +57,7 @@
             <h2 class="sr-only">Transações</h2>
 
             <!-- # no href é uma estratégia para não sair da página -->
-            <a href="#" onclick="Modal.open()" class="button new" title="Add new transaction">+ Nova Transação</a>
+            <a href="#" onclick="Modal.toggle()" class="button new" title="Add new transaction">+ Nova Transação</a>
 
             <table id="data-table">
                 <thead>
@@ -69,27 +69,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class='description'>Luz</td>
-                        <td class='expense'>- R$ 500,00</td>
-                        <td class='date'><time datetime="2021-01-23">23/01/2021</time></td>
-                        <td><img src="./assets/minus.svg" alt="remove transaction image" title="Remove transaction">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class='description'>Criação Website</td>
-                        <td class='income'>R$ 5.000,00</td>
-                        <td class='date'><time datetime="2021-01-23">23/01/2021</time></td>
-                        <td><img src="./assets/minus.svg" alt="remove transaction image" title="Remove transaction">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class='description'>Internet</td>
-                        <td class='expense'>- R$ 200,00</td>
-                        <td class='date'><time datetime="2021-01-23">23/01/2021</time></td>
-                        <td><img src="./assets/minus.svg" alt="remove transaction image" title="Remove transaction">
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </section>
@@ -119,7 +98,7 @@
                     </div>
 
                     <div class="input-group-actions">
-                        <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                        <a href="#" onclick="Modal.toggle()" class="button cancel">Cancelar</a>
                         <button>Salvar</button>
                     </div>
                 </form>
