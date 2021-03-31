@@ -1,9 +1,9 @@
 // DOM modelagem do HTML para o JS realizado pelo browser
 const Modal = {
-    toggle() {
-        const modal = document.querySelector('.modal-overlay').classList;
-
-        modal.contains('active') ? modal.remove('active') : modal.add('active')
+    modal: document.querySelector('.modal-overlay').classList,
+    
+    toggle() {    
+        Modal.modal.contains('active') ? Modal.modal.remove('active') : Modal.modal.add('active')
     }
 }
 
@@ -63,6 +63,7 @@ const Transaction = {
 }
 
 const DOM = {
+    // LABEL
     transactionsContainer: document.querySelector('#data-table tbody'),
 
     addTransaction(transaction, index) {
@@ -78,15 +79,19 @@ const DOM = {
 
         const amount = Utils.formatCurrency(transaction.amount)
 
+        // gettin back to ISO standard to save in datetime tag
+        let dateTimeFormattedDate = transaction.date.split("/")
+        dateTimeFormattedDate = `${dateTimeFormattedDate[2]}-${dateTimeFormattedDate[1]}-${dateTimeFormattedDate[0]}`
+
         const html = `
         <td class='description'>${transaction.description}</td>
         <td class='${CSSclass}'>${amount}</td>
-        <td class='date'><time datetime="${transaction.date}">${transaction.date}</time></td>
+        <td class='date'><time datetime="${dateTimeFormattedDate}">${transaction.date}</time></td>
         <td>
             <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="remove transaction image" title="Remove transaction">
         </td>           
         `
-
+        
         return html
     },
 
