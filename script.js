@@ -1,9 +1,7 @@
 // DOM modelagem do HTML para o JS realizado pelo browser
-const Modal = {
-    modal: document.querySelector('.modal-overlay').classList,
-    
+const Modal = {    
     toggle() {    
-        Modal.modal.contains('active') ? Modal.modal.remove('active') : Modal.modal.add('active')
+        document.querySelector('.modal-overlay').classList.toggle('active')
     }
 }
 
