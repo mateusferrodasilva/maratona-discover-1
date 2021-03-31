@@ -7,32 +7,19 @@ const Modal = {
     }
 }
 
+const Storage = {
+    get() {
+        return JSON.parse(localStorage.getItem('dev.finances:transactions')) || []
+    },
+
+    set(transactions) {
+        localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions))
+    }
+}
+
 const Transaction = {
     // refatoração (traz o const transactions aqui pra dentro)
-    all: [
-        {
-            description: 'Luz',
-            // utilizar a quantidade de casas decimais sem ponto, depois é tratado e formatado
-            amount: -50020, //500.00
-            date: '23/01/2021'
-        },
-        {
-            description: 'Criação website',
-            // utilizar a quantidade de casas decimais sem ponto, depois é tratado e formatado
-            amount: 500012, //500.00
-            date: '23/01/2021'
-        },
-        {
-            description: 'Internet',
-            amount: -20000,
-            date: '23/01/2021'
-        },
-        {
-            description: 'App',
-            amount: 200000,
-            date: '23/01/2021'
-        },
-    ],
+    all: Storage.get(),
 
     add(transaction) {
         Transaction.all.push(transaction)
@@ -212,6 +199,7 @@ const App = {
 
         DOM.updateBalance()
 
+        Storage.set(Transaction.all)
     },
     reload() {
         DOM.clearTransactions()
